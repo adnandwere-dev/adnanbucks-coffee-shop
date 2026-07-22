@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary colors - Light mode */
+  --color-primary: #1e3932;
+  --color-primary-container: #7a978e;
+  --color-primary-fixed: #cbe9df;
+  --color-primary-fixed-dim: #afcdc3;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #04201a;
+
+  /* Background and surfaces - Light mode */
+  --color-background: #faf9f7;
+  --color-on-background: #1a1c1b;
+  --color-inverse-surface: #2f3130;
+  --color-inverse-on-surface: #f1f1ef;
+  --color-inverse-primary: #afcdc3;
+
+  --color-surface: #faf9f7;
+  --color-surface-dim: #dadad8;
+  --color-surface-bright: #faf9f7;
+  --color-surface-tint: #48645c;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f4f3f2;
+  --color-surface-container: #eeeeec;
+  --color-surface-container-high: #e9e8e6;
+  --color-surface-container-highest: #e3e2e1;
+
+  /* Text colors - Light mode */
+  --color-on-surface: #617d74;
+  --color-on-surface-variant: #617d74;
+
+  /* Borders */
+  --color-outline: #617d74;
+  --color-outline-variant: #c1c8c4;
+
+  /* Secondary colors */
+  --color-secondary-container: #e5e2db;
+  --color-on-secondary-container: #65645f;
+  --color-secondary-fixed: #e5e2db;
+  --color-secondary-fixed-dim: #c9c6c0;
+
+  /* Tertiary colors */
+  --color-tertiary-container: #363427;
+  --color-on-tertiary-container: #a09c8b;
+
+  /* Error colors */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+
+  --color-dark-bg: #121a17;
+
+  /* Fonts */
+  --font-headline: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
+  --font-sans: var(--font-dm-sans);
+}
+
+@layer base {
+  :root {
+    --background: #faf9f7;
+    --foreground: #1a1c1b;
+  }
+
+  /* Dark mode variables */
+  .dark {
+    --background: #121a17;
+    --foreground: #f1f1ef;
+
+    /* Primary في الوضع الداكن: أفتح من وضع النهار */
+    --color-primary: #cbe9df;
+    --color-on-primary: #04201a;
+
+    --color-background: #1a1512;
+    --color-on-background: #f1f1ef;
+
+    --color-surface: #121a17;
+    --color-on-surface: #e8f1ed;
+    --color-on-surface-variant: #b8c9c2;
+
+    --color-surface-container-lowest: #15130e;
+    --color-surface-container-low: #1d2b26;
+    --color-surface-container: #263832;
+    --color-surface-container-high: #30453d;
+    --color-surface-container-highest: #3a5148;
+    --color-surface-bright: #251f1a;
+
+    --color-outline: #9aafa6;
+    --color-outline-variant: #414846;
+  }
+}
+
+body {
+  background-color: theme("colors.background");
+  color: theme("colors.on-background");
+  font-family: theme("fontFamily.body");
+}
+
+input,
+textarea,
+select {
+  background-color: var(--color-surface-container-lowest);
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-outline-variant);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  border-color: var(--color-outline);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(250, 249, 247, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(233, 228, 209, 0.5);
+}
+
+.dark .glass-panel {
+  background: rgba(23, 35, 31, 0.72);
+  border: 1px solid rgba(143, 214, 192, 0.18);
+}
+
+/* Soft shadows */
+.soft-shadow {
+  box-shadow: 0 10px 40px -10px rgba(7, 35, 29, 0.08);
+}
+
+.dark .soft-shadow {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.45);
+}
+
+/* Image hover scale */
+.image-hover-scale {
+  overflow: hidden;
+}
+
+.image-hover-scale img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-hover-scale:hover img {
+  transform: scale(1.05);
+}
+
+/* Material Symbols settings */
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.material-symbols-outlined[data-weight="fill"] {
+  font-variation-settings: "FILL" 1;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
