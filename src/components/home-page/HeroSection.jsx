@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function HeroSection() {
   return (
-    <section className="relative pt-[120px] pb-24 md:pt-[160px] md:pb-[120px] px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center">
+    <section className="site-entrance relative pt-[120px] pb-24 md:pt-[160px] md:pb-[120px] px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center">
       {/* طبقة الخلفية مع صورة وتدرج لوني */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image

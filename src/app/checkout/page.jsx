@@ -19,7 +19,7 @@ export default function CheckoutPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       const savedDiscount = Number(
-        localStorage.getItem("adnanbucks_discount") || 0
+        localStorage.getItem("adnanbucks_discount") || 0,
       );
 
       setDiscount(savedDiscount === 0.2 ? 0.2 : 0);
@@ -59,7 +59,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-surface pt-8 pb-24">
+    <div className="site-entrance min-h-screen bg-surface pt-8 pb-24">
       <div className="mx-auto mb-12 flex max-w-7xl items-center justify-center border-b border-outline-variant/20 px-4 pb-6 sm:px-6 lg:px-8">
         <Link
           href="/"
@@ -78,7 +78,7 @@ export default function CheckoutPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="space-y-6 lg:col-span-7">
+          <div className="site-entrance-delay-1 space-y-6 lg:col-span-7">
             <div
               className={`overflow-hidden rounded-2xl border bg-surface-container-lowest transition-all duration-500 ${
                 activeStep === 1
@@ -289,7 +289,7 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="site-entrance-delay-2 lg:col-span-5">
             <div className="sticky top-8 rounded-3xl border border-outline-variant/20 bg-surface-container-low p-6 sm:p-8">
               <h2 className="mb-6 font-headline text-2xl font-bold text-primary">
                 In Your Bag

@@ -1,14 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowRight,
-  Minus,
-  Plus,
-  ShoppingCart,
-  Trash2,
-} from "lucide-react";
+import { ArrowRight, Minus, Plus, ShoppingCart, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "@/lib/store";
 
@@ -64,10 +59,7 @@ export default function CartPage() {
 
     if (cleanPromoCode === PROMO_CODE) {
       setDiscount(PROMO_DISCOUNT);
-      localStorage.setItem(
-        DISCOUNT_STORAGE_KEY,
-        String(PROMO_DISCOUNT)
-      );
+      localStorage.setItem(DISCOUNT_STORAGE_KEY, String(PROMO_DISCOUNT));
 
       setPromoMessage({
         text: "✓ Promo code applied! 20% discount.",
@@ -144,7 +136,7 @@ export default function CartPage() {
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex flex-col gap-6 rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-4 transition-colors hover:border-primary/30 sm:flex-row sm:p-6"
+                className="cart-item-enter flex flex-col gap-6 rounded-2xl border border-outline-variant/30 bg-surface-container-lowest p-4 transition-colors hover:border-primary/30 sm:flex-row sm:p-6"
               >
                 <div className="h-32 w-full shrink-0 overflow-hidden rounded-xl relative bg-surface-container-low sm:w-32">
                   <Image
@@ -158,9 +150,18 @@ export default function CartPage() {
                 <div className="flex flex-grow flex-col">
                   <div className="mb-2 flex items-start justify-between">
                     <div>
-                      <h3 className="font-headline text-xl font-bold text-primary">
-                        {item.name}
-                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <h3 className="font-headline text-xl font-bold text-primary">
+                          {item.name}
+                        </h3>
+
+                        <Link
+                          href={`/product/${item.productId}`}
+                          className="font-body text-xs font-bold text-primary/70 transition-colors duration-300 hover:text-primary"
+                        >
+                          View Details
+                        </Link>
+                      </div>
 
                       <p className="mt-1 font-body text-sm text-on-surface-variant">
                         {item.size}
@@ -301,4 +302,3 @@ export default function CartPage() {
     </div>
   );
 }
-

@@ -1,7 +1,7 @@
 import Image from "next/image";
 export default function StorySection() {
   return (
-    <section className="py-32 relative min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="site-entrance py-32 relative min-h-[600px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           fill
@@ -22,7 +22,8 @@ export default function StorySection() {
             roasting them in-house to unlock their unique terroir.
           </p>
           <p className="font-headline text-xl text-primary italic font-medium pt-4 border-t border-outline-variant/30">
-            &ldquo;We believe every cup should tell the story of its origin.&rdquo;
+            &ldquo;We believe every cup should tell the story of its
+            origin.&rdquo;
           </p>
         </div>
       </div>

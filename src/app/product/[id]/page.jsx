@@ -31,7 +31,11 @@ export default function ProductDetailsPage() {
   if (!product) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-surface px-4 pt-[80px] text-center">
-        <Coffee size={64} strokeWidth={1.5} className="mb-4 text-outline-variant" />
+        <Coffee
+          size={64}
+          strokeWidth={1.5}
+          className="mb-4 text-outline-variant"
+        />
 
         <h1 className="mb-4 font-headline text-3xl font-bold text-primary">
           Product Not Found
@@ -53,8 +57,7 @@ export default function ProductDetailsPage() {
 
   const isDrink = ["coffee", "iced", "seasonal"].includes(product.category);
 
-  const priceAdjustment =
-    size === "Tall" ? -0.5 : size === "Venti" ? 0.7 : 0;
+  const priceAdjustment = size === "Tall" ? -0.5 : size === "Venti" ? 0.7 : 0;
 
   const finalPrice = product.price + priceAdjustment;
   const totalPrice = finalPrice * quantity;
@@ -90,16 +93,13 @@ export default function ProductDetailsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface pb-32 pt-[100px] md:pb-24">
+    <div className="site-entrance min-h-screen bg-surface pb-32 pt-[100px] md:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav
           aria-label="Breadcrumb"
           className="mb-8 flex items-center text-sm font-body text-outline"
         >
-          <Link
-            href="/menu"
-            className="transition-colors hover:text-primary"
-          >
+          <Link href="/menu" className="transition-colors hover:text-primary">
             Menu
           </Link>
 
@@ -115,7 +115,7 @@ export default function ProductDetailsPage() {
         </nav>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-6">
+          <div className="site-entrance-delay-1 lg:col-span-6">
             <div className="relative  flex aspect-square items-center justify-center overflow-hidden rounded-3xl border border-outline-variant/20 bg-surface-container-low soft-shadow">
               <Image
                 fill
@@ -135,7 +135,7 @@ export default function ProductDetailsPage() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:col-span-6">
+          <div className="site-entrance-delay-2 flex flex-col lg:col-span-6">
             <div className="mb-8 border-b border-outline-variant/30 pb-8">
               <h1 className="mb-4 font-headline text-3xl font-bold tracking-tight text-primary md:text-4xl">
                 {product.name}
@@ -274,9 +274,7 @@ export default function ProductDetailsPage() {
                 >
                   <ShoppingBag size={19} />
                   <span>Add to Order</span>
-                  <span className="opacity-80">
-                    • ${totalPrice.toFixed(2)}
-                  </span>
+                  <span className="opacity-80">• ${totalPrice.toFixed(2)}</span>
                 </button>
               </div>
             </div>
@@ -284,7 +282,7 @@ export default function ProductDetailsPage() {
         </div>
 
         {pairings.length > 0 && (
-          <section className="mt-24 border-t border-outline-variant/20 pt-16">
+          <section className="site-entrance-delay-3 mt-24 border-t border-outline-variant/20 pt-16">
             <h2 className="mb-8 text-center font-headline text-3xl font-bold text-primary">
               Perfect Pairings
             </h2>
@@ -324,4 +322,3 @@ export default function ProductDetailsPage() {
     </div>
   );
 }
-

@@ -94,7 +94,7 @@ function MenuPageContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-surface pb-24 pt-28">
+    <div className="site-entrance min-h-screen bg-surface pb-24 pt-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
           <h1 className="font-headline text-4xl font-bold text-primary md:text-5xl">
@@ -143,7 +143,7 @@ function MenuPageContent() {
             {filteredProducts.map((product) => (
               <article
                 key={product.id}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-outline-variant/20 bg-surface-container-lowest transition-all duration-300 hover:shadow-xl"
+                className="menu-product-card group flex h-full flex-col overflow-hidden rounded-2xl border border-outline-variant/20 bg-surface-container-lowest transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
               >
                 <Link href={`/product/${product.id}`} className="block">
                   <div className="relative aspect-square overflow-hidden bg-surface-container-low">
@@ -186,7 +186,7 @@ function MenuPageContent() {
                   <button
                     type="button"
                     onClick={() => handleQuickAdd(product)}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-on-primary"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-[color,background-color,transform] duration-300 hover:scale-[1.03] hover:bg-primary hover:text-on-primary"
                     aria-label={`Add ${product.name} to order`}
                   >
                     <Plus size={20} strokeWidth={2.5} />

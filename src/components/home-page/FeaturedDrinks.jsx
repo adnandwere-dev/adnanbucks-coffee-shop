@@ -4,7 +4,7 @@ import { PRODUCTS } from "@/lib/data";
 
 export default function FeaturedDrinks() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-surface transition-colors duration-300 overflow-hidden">
+    <section className="site-entrance py-24 px-4 sm:px-6 lg:px-8 bg-surface transition-colors duration-300 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* عنوان القسم */}
         <div className="text-center mb-16 space-y-3">
@@ -75,7 +75,6 @@ export default function FeaturedDrinks() {
                   </span>
                 </p>
               </div>
-              
             </Link>
             <Link
               href="/product/rose-pistachio-latte"
